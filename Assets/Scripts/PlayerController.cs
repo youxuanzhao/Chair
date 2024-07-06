@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.UI;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
@@ -62,7 +63,7 @@ public class PlayerController : MonoBehaviour {
         if (Physics.Raycast(playerCamera.position, playerCamera.forward, out hit, interactDistance)) {
             InteractiveObject interactiveObject = hit.collider.GetComponent<InteractiveObject>();
             if (interactiveObject != null) {
-                interactiveObject.PickUp();
+                interactiveObject.PickUp(transform);
                 heldObject = interactiveObject;
             }
         }
